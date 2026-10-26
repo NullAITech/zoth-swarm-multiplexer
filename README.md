@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="Zoth Swarm Multiplexer — Sovereign Architecture Banner" width="100%" />
+</div>
+
+<br />
+
 # ⚡ Zoth Swarm Multiplexer (`zoth-swarm-multiplexer`)
 
 > **21-Agent Sovereign Terminal Multiplexer & Universal Harness Daemon**  
