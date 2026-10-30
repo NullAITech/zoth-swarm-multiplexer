@@ -6,8 +6,69 @@
 
 # ⚡ Zoth Swarm Multiplexer (`zoth-swarm-multiplexer`)
 
+[![Access: 100% Free](https://img.shields.io/badge/Access-100%25%20Free%20%26%20Open-10B981?style=flat)](https://zoth.nullai.tech/tools/zoth-swarm-multiplexer)
+[![Buy Us a Coffee](https://img.shields.io/badge/☕%20Buy%20Us%20a%20Coffee-Stripe-D4AF37?style=flat)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
+[![Solana Tip](https://img.shields.io/badge/Solana-Tip%20Wallet-14F195?style=flat&logo=solana)](https://zoth.nullai.tech/tools/zoth-swarm-multiplexer)
+[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/zoth-swarm-multiplexer)
+[![Loopback Port](https://img.shields.io/badge/Port-8141%20%2F%208989-38BDF8?style=flat)](http://127.0.0.1:8141)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0%20runtime%20deps-brightgreen.svg)](pyproject.toml)
+[![MCP Server](https://img.shields.io/badge/MCP-FastMCP%202024--11--05-blueviolet.svg)](mcp_server.py)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > **21-Agent Sovereign Terminal Multiplexer & Universal Harness Daemon**  
-> Pure Python 3 standard library · Zero external pip dependencies · 100% Offline Air-Gapped Egress · Model Context Protocol (MCP) compliant.
+> Pure Python 3 standard library · Zero external pip dependencies · 100% Offline Air-Gapped Egress · Model Context Protocol (MCP) compliant.  
+> ☕ **100% Free & Open Access**: Zero paywalls, zero license locks. Support independent engineering via [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) or Solana Tip (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).  
+> ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+
+---
+
+## 📖 What It Does
+
+The **Zoth Swarm Multiplexer** is a sovereign multi-agent terminal cockpit and orchestration daemon. It coordinates **21 concurrent agent nodes** across five functional Cadres, allowing operators and autonomous tools to spawn, monitor, and direct agents within a unified interface:
+
+- **21 Pantheon Terminals**: Concurrent live interactive terminal multiplexer with independent PWD contexts and process IDs.
+- **Universal Harness Hot-Swapping**: Switch agent execution runtimes between Hermes Agent, Antigravity (`agy`), Codex, Claude Code, OpenCode, and local Ollama without restarting processes.
+- **Dynamic Model Routing**: Direct instructions to Sonnet 3.7, DeepSeek R1, Qwen 2.5 Coder, Llama 3.3, or GPT-4.5 on the fly.
+- **STDP Synaptic Memory Matrix**: Bidirectional synchronization with `neuro-memory-daemon` (`:8788`) with live Long-Term Potentiation (LTP) synaptic reinforcement.
+- **Real-Time Telemetry & SSE**: Streams live execution logs and status transitions over Server-Sent Events (`/stream`).
+
+---
+
+## ⚙️ How It Works
+
+1. **Multiplexer Engine (`swarm_daemon.py`)**: Manages the state of all 21 Pantheon nodes in memory with lock-safe command queues and history logs.
+2. **Terminal Cockpit (`index.html`)**: Vanilla JS and CSS terminal matrix rendering 21 streaming consoles with global command broadcasting and cadre filters.
+3. **Local CLI Control Surface (`swarm_cli.py`)**: Interacts with the daemon via REST or executes directly in standalone headless mode.
+4. **FastMCP Server (`mcp_server.py`)**: Exposes swarm inspection, execution, and broadcast primitives to Claude Desktop and Cursor.
+
+---
+
+## 💻 ZothOS CLI & Subcommands
+
+Zoth Swarm Multiplexer is available system-wide via `/usr/local/bin/zoth-swarm-multiplexer` and `swarm-multiplexer`:
+
+```bash
+# Check version and status
+swarm-multiplexer --version
+swarm-multiplexer --status
+swarm-multiplexer --json
+
+# View live 21-agent matrix
+swarm-multiplexer status
+swarm-multiplexer status --cadre Architects
+
+# Execute command on a specific agent
+swarm-multiplexer exec AZOTH "git status -s"
+
+# Broadcast command to all agents or a cadre
+swarm-multiplexer broadcast "pytest -v" --cadre Code
+
+# Switch harness or model
+swarm-multiplexer switch AZOTH --harness agy --model claude-3-7-sonnet
+
+# Launch daemon on port 8141
+zoth-swarm-multiplexer daemon --port 8141
+```
 
 ---
 
