@@ -27,6 +27,34 @@
       --font-mono: 'JetBrains Mono', monospace;
       --font-title: 'Cinzel', serif;
     }
+    html[data-theme="light"] {
+      --bg-void: #F8F6F0;
+      --bg-card: #FFFFFF;
+      --bg-term: #0F172A;
+      --border: rgba(146, 108, 21, 0.32);
+      --border-bright: rgba(146, 108, 21, 0.65);
+      --gold: #9A6B13;
+      --gold-light: #78500A;
+      --text-main: #111827;
+      --text-muted: #4B5563;
+    }
+    html[data-theme="light"] header,
+    html[data-theme="light"] .broadcast-container,
+    html[data-theme="light"] .filter-bar,
+    html[data-theme="light"] .term-header,
+    html[data-theme="light"] .term-meta,
+    html[data-theme="light"] .term-footer {
+      background: #F3EFE6 !important;
+      color: #111827 !important;
+    }
+    html[data-theme="light"] .meta-select,
+    html[data-theme="light"] .stdin-input,
+    html[data-theme="light"] .broadcast-input {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+      border-color: rgba(146, 108, 21, 0.35) !important;
+    }
+    html[data-theme="light"] .term-viewport .log-user { color: #FDE68A !important; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -118,7 +146,7 @@
     }
     .broadcast-input-box {
       flex: 1;
-      min-width: 280px;
+      min-width: min(100%, 240px);
       position: relative;
     }
     .broadcast-input {
@@ -223,11 +251,12 @@
     }
     .terminals-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
       gap: 20px;
     }
     @media (max-width: 540px) {
-      .terminals-grid { grid-template-columns: 1fr; }
+      .terminals-grid { grid-template-columns: minmax(0, 1fr); }
+      header, .broadcast-container, .filter-bar, main { padding: 12px !important; }
     }
 
     /* Single Terminal Card */
@@ -446,6 +475,7 @@
       </div>
       <button class="btn btn-secondary" onclick="syncAllMemories()">🧠 Sync STDP Synapses</button>
       <button class="btn btn-secondary" onclick="exportTranscript()">📜 Export Logs</button>
+      <button id="themeToggleBtn" class="btn btn-secondary" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')">☀ Light / Dark</button>
     </div>
   </header>
 
@@ -686,9 +716,9 @@
       appendLog(agentId, 'user', `$ ${cmd}`);
       appendLog(agentId, 'thought', `Synthesizing task via local harness...`);
 
-      // Try calling local daemon on :8989
+      // Try calling local daemon on relative /execute
       try {
-        const res = await fetch('http://127.0.0.1:8989/execute', {
+        const res = await fetch('/execute', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ agent_id: agentId, command: cmd })
@@ -768,7 +798,6 @@
       PANTHEON_AGENTS.forEach(a => {
         appendLog(a.id, 'system', `⚡ STDP Long-Term Potentiation reinforced (+0.08). Synchronized with neuro-memory-daemon.`);
       });
-      alert("All 21 Agent STDP Synaptic Matrices Synchronized with neuro-memory-daemon (:8788)!");
     }
 
     function exportTranscript() {

@@ -18,7 +18,7 @@
 > **21-Agent Sovereign Terminal Multiplexer & Universal Harness Daemon**  
 > Pure Python 3 standard library · Zero external pip dependencies · 100% Offline Air-Gapped Egress · Model Context Protocol (MCP) compliant.  
 > ☕ **100% Free & Open Access**: Zero paywalls, zero license locks. Support independent engineering via [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) or Solana Tip (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).  
-> ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+> ⚡ **Attribution**: Engineered by 1nc0gn30 • NullAI ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
 
 ---
 
